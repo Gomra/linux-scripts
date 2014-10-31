@@ -1,0 +1,47 @@
+--- guake.orig	2014-10-21 23:09:36.369493168 +0200
++++ /usr/bin/guake	2014-10-21 23:10:14.317492174 +0200
+@@ -578,7 +578,11 @@
+         # close/rename. This attribute will be set in
+         # self.show_tab_menu
+         self.selected_tab = None
+-
++######
++        # holds the number of created tabs. This counter will not be
++        # reset to avoid problems of repeated tab names.
++        self.tab_counter = 0
++######
+         # holds fullscreen status
+         self.is_fullscreen = False
+ 
+@@ -998,6 +1002,9 @@
+         self.delete_tab(self.notebook.page_num(widget), kill=False)
+ 
+     def on_terminal_title_changed(self, vte, box):
++#####
++        return
++#####
+         use_them = self.client.get_bool(KEY("/general/use_vte_titles"))
+         if not use_them:
+             return
+@@ -1212,7 +1219,10 @@
+         self.pid_list.append(pid)
+ 
+         # Adding a new radio button to the tabbar
+-        label = box.terminal.get_window_title() or _("Terminal")
++#####
++        #label = box.terminal.get_window_title() or _("Terminal")
++        label = box.terminal.get_window_title() or _('Term %s')%self.tab_counter
++#####
+         tabs = self.tabs.get_children()
+         parent = tabs and tabs[0] or None
+ 
+@@ -1228,6 +1238,9 @@
+         bnt.show()
+ 
+         self.tabs.pack_start(bnt, expand=False, padding=1)
++#####
++        self.tab_counter+=1
++#####
+ 
+         self.notebook.append_page(box, None)
+         self.notebook.set_current_page(self.notebook.page_num(box))
