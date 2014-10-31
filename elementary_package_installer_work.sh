@@ -121,16 +121,20 @@ echo "Adding Dropbox"
 sudo apt-add-repository -y 'deb http://linux.dropbox.com/ubuntu trusty main'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 # Elementary Tweaks
-echo "Elementary Tweaks"
+echo "Adding Elementary Tweaks"
 sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
-echo ""
+# Insync
+echo "Adding Insync"
+wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
+sudo echo "#Add Insync Repository" >> /etc/apt/sources.list
+sudo echo "deb http://apt.insynchq.com/[ubuntu] [trusty] non-free contrib" >> /etc/apt/sources.list
 # NixNote
+echo "Adding NixNote"
 sudo apt-add-repository -y ppa:vincent-c/nevernote
 # Skype
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
 sudo apt-add-repository -y 'deb-src http://archive.canonical.com/ubuntu/ trusty partner'
-echo ""
 # Spotify
 echo "Adding Spotify"
 sudo apt-add-repository -y 'deb http://repository.spotify.com/ stable non-free' 
@@ -150,7 +154,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp keepass2 libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
 echo ""
 sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
@@ -163,9 +167,6 @@ echo "SmartGitHG"
 wget -O ~/Download/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
 mkdir -p ~/programs/smartgithg
 tar xvzf ~/Downloads/smartgithg.tar.gz -C ~/programs/
-echo "insync"
-wget -O ~/Downloads/insync.deb http://s.insynchq.com/builds/insync_1.0.34.31801-trusty_amd64.deb
-sudo gdebi -n ~/Downloads/insync.deb
 # Unhandled dependencies?
 sudo apt-get -y install -f
 echo ""
