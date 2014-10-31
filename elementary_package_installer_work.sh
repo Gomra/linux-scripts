@@ -6,6 +6,11 @@
 #
 ###############################################################################
 # + + + + + ToDo + + + + +
+# Install Guake-Patch
+# Perform some configurations automatically
+#	+ List of configuration
+#		- Which files will be needed and where will they be stored?
+#
 #
 ###############################################################################
 # + + + + + List of installed packages to remove + + + + +
