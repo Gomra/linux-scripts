@@ -2,6 +2,7 @@
 #
 # mbo 
 # install-script for elementary os
+# v.0.2 :  2014-10-31 - Add insync repository
 # v.0.1 :  2014-10-20 - initial version of the script
 #
 ###############################################################################
