@@ -19,6 +19,7 @@
 #		- autokey-config
 #		- evolution-config ?
 #		- nsswitch, network-configuration: wlan-cert
+#		- gtkrc /usr/share/themes/elementary/gtk-2.0/gtkrc
 #
 # Optional config
 #	+ conky
@@ -148,7 +149,7 @@ sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
 echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
 sudo echo "#Add Insync Repository" >> /etc/apt/sources.list
-sudo echo "deb http://apt.insynchq.com/[ubuntu] [trusty] non-free contrib" >> /etc/apt/sources.list
+sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list
 # NixNote
 echo "Adding NixNote"
 sudo apt-add-repository -y ppa:vincent-c/nevernote
