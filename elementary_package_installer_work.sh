@@ -10,7 +10,21 @@
 # Install Guake-Patch
 # Perform some configurations automatically
 #	+ List of configuration
-#		- Which files will be needed and where will they be stored?
+#		- vimrc
+#		- bashrc, bash_alias
+#		- middle-click.sh
+#		- synaptics_touchpad
+#		- thunderbird-config
+#		- synapse-config
+#		- autokey-config
+#		- evolution-config ?
+#		- nsswitch, network-configuration: wlan-cert
+#
+# Optional config
+#	+ conky
+#	+ vpn
+#	+ keepass2
+#	
 #
 #
 ###############################################################################
@@ -51,6 +65,7 @@
 # insync
 # java # -->openjdk-7-jre openjdk-7-jdk
 # keepass2
+# labyrinth	# mind mapping tool
 # libreoffice libreoffice-l10n-de
 # mc # Midnight Commander
 # meld
@@ -160,7 +175,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
 echo ""
 sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
