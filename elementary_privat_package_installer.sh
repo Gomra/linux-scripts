@@ -19,8 +19,6 @@
 #		- synapse-config
 #		- autokey-config
 #		- evolution-config ?
-#		- nsswitch, network-configuration: wlan-cert
-#		- gtkrc /usr/share/themes/elementary/gtk-2.0/gtkrc
 #
 # Optional config
 #	+ conky
@@ -122,34 +120,41 @@ echo "Step 1: Checking for the config files"
 echo ""
 if [ ! -f ~/guake.patch ]; then
 	echo "File 'guake.patch' does not exist in your homedir"
-	echo "Put file into homedir and run the script againt"
+	echo "Put file into homedir and run the script again."
+	echo ""
+	fehler=1
+fi
+echo ""
+if [ ! -f ~/gtk_scrollbar.patch ]; then
+	echo "File 'gtk_scrollbar.patch' does not exist in your homedir"
+	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
 if [ ! -f ~/vimrc ]; then
 	echo "File 'vimrc' does not exist in your homedir"
-	echo "Put file into homedir and run the script againt"
+	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
 if [ ! -f ~/bash_aliases ]; then
 	echo "File 'bash_aliases (not the original hidden!!!)' does not exist in your homedir"
-	echo "Put file into homedir and run the script againt"
+	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
 if [ ! -f ~/middle-click.sh ]; then
 	echo "File 'middle-click.sh' does not exist in your homedir"
-	echo "Put file into homedir and run the script againt"
+	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 if [ $fehler -ne 0 ]; then
 	echo ""
-	echo "One or mor errors occured."
+	echo "One or more errors occured."
 	echo "Copy files to your homedir and try to run this script again"
 	echo ""
 	exit 1
@@ -232,12 +237,19 @@ sudo apt-get autoclean -y
 echo ""
 # Unhandled dependencies?
 sudo apt-get -y install -f
+echo ""
 echo "Patching Guake"
 sudo patch /usr/bin/guake < ~/guake.patch
 rm ~/guake.patch
+echo ""
+echo "Patching gtk scrollbar width"
+sudo patch /usr/share/themes/elementary/gtk-2.0/gtkrc < ~/gtk_scrollbar.patch
+rm ~/gtk_scrollbar.patch
+echo ""
 echo "Moving vim config"
 sudo mv ~/vimrc /etc/vim/
 echo ""
+echo "Customizing bash"
 mv ~/bashrc /.bashrc
 echo "" >> $bashrc
 echo "# Middle MouseButton on Capslock" >> $bashrc
@@ -245,7 +257,8 @@ echo "if [ -f ~/.middle-click.sh ]; then" >> $bashrc
 echo "    . ~/.middle-click.sh" >> $bashrc
 echo "fi" >> $bashrc
 mv ~/bash_aliases ~/.bash_aliases
-echo "Have fun!"
+echo ""
+echo "All tasks done. Have fun!"
 
 END=`date`
 
