@@ -7,6 +7,10 @@
 #
 ###############################################################################
 # + + + + + ToDo + + + + +
+# Missing programs / packages
+#	+ Komodo edit
+#
+#
 # Install Guake-Patch
 # Perform some configurations automatically
 #	+ List of configuration
@@ -116,18 +120,8 @@ echo "Step 1: Update System"
 sudo apt-get update
 sudo apt-get -y dist-upgrade
 
-# Let's get rid of unnecessary software packages
-echo "Step 2:  remove not used packages"
-sudo apt-get purge -y midori-granite
-sudo apt-get purge -y noise
-sudo apt-get purge -y geary 
-sudo apt-get purge -y software-center
-sudo apt-get purge -y scratch-text-editor
-sudo apt-get autoremove -y
-sudo apt-get autoclean -y
-echo ""
 # Add all of the additional repositories
-echo "Step 3: Add Repos"
+echo "Step 2: Add Repos"
 echo ""
 # Birdie - Twitter client
 echo "Adding Birdie - Twitter Client"
@@ -174,7 +168,7 @@ echo ""
 sudo apt-get update
 echo ""
 # Let's install the bunch of the new nice <<required>> software
-echo "Final Step 4: INSTALLATION"
+echo "Final Step 3: INSTALLATION"
 echo ""
 sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
 echo ""
@@ -182,13 +176,25 @@ sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
 wget -O ~/Downloads/teamviewer.deb http://www.teamviewer.com/download/teamviewer_linux.deb
 sudo gdebi -n ~/Downloads/teamviewer.deb
-echo "Google Chrome"
+echo "Install Google Chrome"
 wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
 sudo gdebi -n ~/Downloads/googlechrome.deb
-echo "SmartGitHG"
-wget -O ~/Download/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
+echo "Install SmartGitHG"
+wget -O ~/Downloads/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
 mkdir -p ~/programs/smartgithg
+#chown $1:$1 -R ~/programs
 tar xvzf ~/Downloads/smartgithg.tar.gz -C ~/programs/
+
+# Let's get rid of unnecessary software packages
+echo "Step 4:  remove unnecessary software packages"
+sudo apt-get purge -y midori-granite
+sudo apt-get purge -y noise
+sudo apt-get purge -y geary 
+sudo apt-get purge -y software-center
+sudo apt-get purge -y scratch-text-editor
+sudo apt-get autoremove -y
+sudo apt-get autoclean -y
+echo ""
 # Unhandled dependencies?
 sudo apt-get -y install -f
 echo ""
