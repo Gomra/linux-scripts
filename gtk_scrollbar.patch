@@ -1,0 +1,11 @@
+--- gtkrc.backup	2014-11-06 18:48:28.022727959 +0100
++++ gtkrc	2014-11-06 18:49:15.646964096 +0100
+@@ -68,7 +68,7 @@
+ 	GtkScrollbar		::has-backward-stepper              = 0  
+ 	GtkScrollbar		::has-forward-stepper               = 0
+ 	GtkScrollbar		::min-slider-length                 = 30
+-	GtkScrollbar		::slider-width                      = 6
++	GtkScrollbar		::slider-width                      = 12
+ 	GtkScrollbar		::trough-border                     = 1
+ 
+ 	GtkScrolledWindow	::scrollbar-spacing                 = 0
