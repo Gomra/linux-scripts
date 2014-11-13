@@ -61,7 +61,7 @@
 # gimp
 # git
 # gitg
-# google-chrome # https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+# google-chrome # https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb <-- Removed due to indicator icons erros
 # gparted
 # gsynaptics
 # guake
@@ -176,9 +176,10 @@ sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
 wget -O ~/Downloads/teamviewer.deb http://www.teamviewer.com/download/teamviewer_linux.deb
 sudo gdebi -n ~/Downloads/teamviewer.deb
-echo "Install Google Chrome"
-wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
-sudo gdebi -n ~/Downloads/googlechrome.deb
+#echo "Install Google Chrome"
+#wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+#sudo gdebi -n ~/Downloads/googlechrome.deb
+echo ""
 echo "Install SmartGitHG"
 wget -O ~/Downloads/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
 mkdir -p ~/programs/smartgithg
