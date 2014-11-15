@@ -178,6 +178,7 @@ wget -O ~/Downloads/teamviewer.deb http://www.teamviewer.com/download/teamviewer
 sudo gdebi -n ~/Downloads/teamviewer.deb
 #echo "Install Google Chrome"
 #wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
+#wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #sudo gdebi -n ~/Downloads/googlechrome.deb
 echo ""
 echo "Install SmartGitHG"

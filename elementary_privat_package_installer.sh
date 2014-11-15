@@ -46,7 +46,7 @@
 # conky conky-all conky-manager
 # dconf-editor
 # docker.io
-# dropbox # http://wiki.ubuntuusers.de/Dropbox
+# dropbox # http://wiki.ubuntuusers.de/Dropbox + python-gpgme
 # elementary-tweaks
 # filezilla
 # firefox firefox-locale-de
@@ -55,7 +55,7 @@
 # gimp
 # git
 # gitg
-# google-chrome # https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb <-- Removed due to icon errors in panel
+# google-chrome
 # gparted
 # gsynaptics
 # guake
@@ -96,6 +96,7 @@
 # vlc
 # wine winetricks playonlinux # latest version from PPA
 # xbindkeys xbindkeys-config xkbset # For keyboard manipulation (e.g. "CapsLock=MidMouse")
+# youtube-dl
 #
 ###############################################################################
 START=`date`
@@ -216,16 +217,19 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld nixnote openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld nixnote openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+echo ""
+echo "Fix for missing Dropbox indicator"
+echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
 echo ""
 sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
 wget -O ~/Downloads/teamviewer.deb http://www.teamviewer.com/download/teamviewer_linux.deb
 sudo gdebi -n ~/Downloads/teamviewer.deb
 echo ""
-#echo "Install Google Chrome"
-#wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb
-#sudo gdebi -n ~/Downloads/googlechrome.deb
+echo "Install Google Chrome"
+wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo gdebi -n ~/Downloads/googlechrome.deb
 
 # Let's get rid of unnecessary software packages
 echo "Step 5:  remove unnecessary software packages"
@@ -267,5 +271,5 @@ END=`date`
 echo ""
 echo "Start: $START"
 echo "Ende: $END"
-
+echo ""
 exit 0
