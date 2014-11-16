@@ -17,6 +17,7 @@
 #
 # curl
 # fping
+# hddtemp
 # lynx
 # mysql
 ###############################################################################
@@ -59,7 +60,7 @@ sudo apt-get -y dist-upgrade
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 2: INSTALLATION"
 echo ""
-sudo apt-get -y install curl fping lynx mysql
+sudo apt-get -y install curl fping hddtemp lynx mysql
 echo ""
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
