@@ -230,6 +230,11 @@ echo ""
 echo "Install Google Chrome"
 wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n ~/Downloads/googlechrome.deb
+echo ""
+echo "Install Google Music Manager"
+wget -O ~/Downloads/googlemusic.deb https://dl.google.com/linux/direct/google-musicmanager-beta_current_amd64.deb
+sudo gdebi -n ~/Downloads/googlemusic.deb
+echo ""
 
 # Let's get rid of unnecessary software packages
 echo "Step 5:  remove unnecessary software packages"
