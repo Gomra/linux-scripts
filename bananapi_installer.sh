@@ -17,11 +17,7 @@
 #
 # curl
 # fping
-<<<<<<< HEAD
 # hddtemp
-=======
-# lm-sensors
->>>>>>> testing
 # lynx
 # mysql
 ###############################################################################
@@ -64,11 +60,7 @@ sudo apt-get -y dist-upgrade
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 2: INSTALLATION"
 echo ""
-<<<<<<< HEAD
 sudo apt-get -y install curl fping hddtemp lynx mysql
-=======
-sudo apt-get -y install curl fping lm-sensors lynx mysql
->>>>>>> testing
 echo ""
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
