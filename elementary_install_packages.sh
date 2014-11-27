@@ -42,7 +42,7 @@
 # pdftk
 # pepperflashplugin-nonfree
 # pinta
-# shutter
+# shutter --> libimage-exif-perl gnome-web-photo libimage-exiftool-perl libgtk2-appindicator-perl <-- for indicator in wingpanel
 # skype 
 # spotify-client
 # sublime-text
@@ -116,7 +116,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install anjuta aptitude autokey-gtk birdie bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io evolution evolution-ews firefox firefox-locale-de gedit git gitg gparted grive gsynaptics guake guayadeque hddtemp libreoffice libreoffice-l10n-de meld pdftk pepperflashplugin-nonfree pinta shutter skype spotify-client sublime-text synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install anjuta aptitude autokey-gtk birdie bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io evolution evolution-ews firefox firefox-locale-de gedit git gitg gparted grive gsynaptics guake guayadeque hddtemp libreoffice libreoffice-l10n-de meld pdftk pepperflashplugin-nonfree pinta shutter libimage-exif-perl gnome-web-photo libimage-exiftool-perl libgtk2-appindicator-perl skype spotify-client sublime-text synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
 echo ""
 echo "Have fun!"
 

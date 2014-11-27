@@ -51,7 +51,7 @@
 # filezilla
 # firefox firefox-locale-de
 # flashplugin-installer
-# gedit
+# gedit + gedit-plugins
 # gimp
 # git
 # gitg
@@ -189,8 +189,8 @@ sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
 # Insync
 echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
-sudo echo "#Add Insync Repository" >> /etc/apt/sources.list
-sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list
+sudo echo "#Add Insync Repository" >> /etc/apt/sources.list.d/insync.list
+sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list.d/insync.list
 # NixNote
 echo "Adding NixNote"
 sudo apt-add-repository -y ppa:vincent-c/nevernote
@@ -217,7 +217,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld nixnote openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld nixnote openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
 echo ""
 echo "Fix for missing Dropbox indicator"
 echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
