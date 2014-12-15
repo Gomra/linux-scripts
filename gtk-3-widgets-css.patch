@@ -1,0 +1,11 @@
+--- gtk-widgets.css.bak	2014-12-15 23:07:00.719116360 +0100
++++ gtk-widgets.css	2014-12-15 23:17:02.510100482 +0100
+@@ -1261,7 +1261,7 @@
+     -GtkRange-trough-border: 2;
+     -GtkScrollbar-has-backward-stepper: false;
+     -GtkScrollbar-has-forward-stepper: false;
+-    -GtkRange-slider-width: 3;
++    -GtkRange-slider-width: 10;
+     -GtkScrollbar-min-slider-length: 30;
+ 
+     -GtkRange-stepper-spacing: 0;
