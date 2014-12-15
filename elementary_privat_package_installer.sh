@@ -2,7 +2,7 @@
 #
 # mbo 
 # install-script for elementary os
-# v.0.3 :  2014-12-15 - Removed Nixnote; GTK-3 Scrollbar patch
+# v.0.3 :  2014-12-15 - Removed nixnote; GTK-3 scrollbar patch
 # v.0.2 :  2014-10-31 - Add insync repository
 # v.0.1 :  2014-10-20 - initial version of the script
 #
@@ -52,6 +52,7 @@
 # filezilla
 # firefox firefox-locale-de
 # flashplugin-installer
+# gdebi
 # gedit + gedit-plugins
 # gimp
 # git
@@ -271,6 +272,9 @@ echo "Customizing bash"
 mv ~/bashrc /.bashrc
 mv ~/bash_aliases ~/.bash_aliases
 echo ""
+echo "Downloading neighbor note - please install manually."
+wget -O ~/Downloads/neighbornote-0.5.3-linux-x64-installer.run http://iij.dl.sourceforge.jp/neighbornote/62335/neighbornote-0.5.3-linux-x64-installer.run
+
 echo "All tasks done. Have fun!"
 
 END=`date`
