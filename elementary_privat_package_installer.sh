@@ -2,6 +2,7 @@
 #
 # mbo 
 # install-script for elementary os
+# v.0.3 :  2014-12-15 - Removed Nixnote; GTK-3 Scrollbar patch
 # v.0.2 :  2014-10-31 - Add insync repository
 # v.0.1 :  2014-10-20 - initial version of the script
 #
@@ -69,7 +70,6 @@
 # lm-sensors
 # mc # Midnight Commander
 # meld
-# nixnote
 # openjdk-7-jdk
 # openjdk-7-jre
 # pdftk
@@ -134,6 +134,13 @@ if [ ! -f ~/gtk_scrollbar.patch ]; then
 	fehler=1
 fi
 echo ""
+if [ ! -f ~/gtk-3-widgets-css.patch ]; then
+	echo "File 'gtk-3-widgets-css' does not exist in your homedir"
+	echo "Put file into homedir and run the script again."
+	echo ""
+	fehler=1
+fi
+echo ""
 if [ ! -f ~/vimrc ]; then
 	echo "File 'vimrc' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
@@ -191,9 +198,6 @@ echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
 sudo echo "#Add Insync Repository" >> /etc/apt/sources.list.d/insync.list
 sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list.d/insync.list
-# NixNote
-echo "Adding NixNote"
-sudo apt-add-repository -y ppa:vincent-c/nevernote
 # Skype
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
@@ -217,7 +221,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld nixnote openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
 echo ""
 echo "Fix for missing Dropbox indicator"
 echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
@@ -257,16 +261,14 @@ echo "Patching gtk scrollbar width"
 sudo patch /usr/share/themes/elementary/gtk-2.0/gtkrc < ~/gtk_scrollbar.patch
 rm ~/gtk_scrollbar.patch
 echo ""
+echo "Patching gtk 3 scrollbar width"
+sudo patch /usr/share/themes/elementary/gtk-3.0/gtk-widgets.css < ~/gtk-3-widgets-css.patch
+rm ~/gtk-3-widgets-css.patch
 echo "Moving vim config"
 sudo mv ~/vimrc /etc/vim/
 echo ""
 echo "Customizing bash"
 mv ~/bashrc /.bashrc
-echo "" >> $bashrc
-echo "# Middle MouseButton on Capslock" >> $bashrc
-echo "if [ -f ~/.middle-click.sh ]; then" >> $bashrc
-echo "    . ~/.middle-click.sh" >> $bashrc
-echo "fi" >> $bashrc
 mv ~/bash_aliases ~/.bash_aliases
 echo ""
 echo "All tasks done. Have fun!"

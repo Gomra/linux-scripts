@@ -6,6 +6,12 @@
 # v.0.1 :  2014-08-26 - initial version of the script
 #
 ###############################################################################
+# Usage:
+# Execute with admin permissions (sudo)
+# sudo /bin/bash elementary_install_packages.sh
+# sudo ./elementary_install_packages.sh
+#
+###############################################################################
 # + + + + + List of installed packages to remove
 # geary
 # midori-granite
@@ -110,6 +116,7 @@ sudo apt-add-repository -y ppa:birdie-team/stable
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
 sudo apt-add-repository -y 'deb-src http://archive.canonical.com/ubuntu/ trusty partner'
+echo "Update Repos"
 sudo apt-get update
 echo ""
  
