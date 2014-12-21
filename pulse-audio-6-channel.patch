@@ -1,0 +1,22 @@
+--- daemon.conf.orig	2014-12-21 23:07:25.665399555 +0100
++++ daemon.conf	2014-12-21 23:08:34.245739632 +0100
+@@ -53,7 +53,7 @@
+ 
+ resample-method = speex-float-1
+ ; enable-remixing = yes
+-; enable-lfe-remixing = no
++enable-lfe-remixing = yes
+ 
+ flat-volumes = no
+ 
+@@ -76,8 +76,8 @@
+ ; default-sample-format = s16le
+ ; default-sample-rate = 44100
+ ; alternate-sample-rate = 48000
+-; default-sample-channels = 2
+-; default-channel-map = front-left,front-right
++default-sample-channels = 6
++default-channel-map = front-left,front-right,rear-right,rear-left,front-center,lfe
+ 
+ default-fragments = 8
+ default-fragment-size-msec = 10
