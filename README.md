@@ -1,4 +1,4 @@
-eos-scripts
+linux-scripts
 ===========
 
 Script collection for linux distributions
