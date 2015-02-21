@@ -194,11 +194,19 @@ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 # Elementary Tweaks
 echo "Adding Elementary Tweaks"
 sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
+echo "Adding Elementary Daily"
+sudo apt-add-repository -y ppa:elementary-os/daily
+echo "Adding Google Chrome"
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 # Insync
 echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
 sudo echo "#Add Insync Repository" >> /etc/apt/sources.list.d/insync.list
 sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list.d/insync.list
+# LibreOffice
+echo "Addinng new LibreOffice"
+sudo apt-add-repository -y ppa:libreoffice/ppa
 # Skype
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
@@ -222,19 +230,15 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
-echo ""
-echo "Fix for missing Dropbox indicator"
-echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+#echo ""
+#echo "Fix for missing Dropbox indicator"
+#echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
 echo ""
 sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
 wget -O ~/Downloads/teamviewer.deb http://www.teamviewer.com/download/teamviewer_linux.deb
 sudo gdebi -n ~/Downloads/teamviewer.deb
-echo ""
-echo "Install Google Chrome"
-wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo gdebi -n ~/Downloads/googlechrome.deb
 echo ""
 echo "Install Google Music Manager"
 wget -O ~/Downloads/googlemusic.deb https://dl.google.com/linux/direct/google-musicmanager-beta_current_amd64.deb
