@@ -46,7 +46,7 @@
 # chromium-browser chromium-browser-l10n
 # conky conky-all conky-manager
 # dconf-editor
-# docker.io
+# docker (lxc-docker)
 # dropbox # http://wiki.ubuntuusers.de/Dropbox + python-gpgme
 # elementary-tweaks
 # filezilla
@@ -82,6 +82,7 @@
 # rdesktop
 # shutter
 # skype  
+# structorizer
 # spotify-client
 # sublime-text
 # subversion
@@ -107,6 +108,7 @@ START=`date`
 bashrc=~/.bashrc
 bashali=~/.bash_aliases
 fehler=0
+dir=`pwd`
 #
 ###############################################################################
 echo "Install frequently used software for Ubuntu based Linux Distros"
@@ -121,42 +123,42 @@ echo "Let's start!"
 echo ""
 echo "Step 1: Checking for the config files"
 echo ""
-if [ ! -f ~/guake.patch ]; then
+if [ ! -f $dir/guake.patch ]; then
 	echo "File 'guake.patch' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
-if [ ! -f ~/gtk_scrollbar.patch ]; then
+if [ ! -f $dir/gtk_scrollbar.patch ]; then
 	echo "File 'gtk_scrollbar.patch' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
-if [ ! -f ~/gtk-3-widgets-css.patch ]; then
+if [ ! -f $dir/gtk-3-widgets-css.patch ]; then
 	echo "File 'gtk-3-widgets-css' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
-if [ ! -f ~/vimrc ]; then
+if [ ! -f $dir/vimrc ]; then
 	echo "File 'vimrc' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
-if [ ! -f ~/bash_aliases ]; then
+if [ ! -f $dir/bash_aliases ]; then
 	echo "File 'bash_aliases (not the original hidden!!!)' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
 	fehler=1
 fi
 echo ""
-if [ ! -f ~/middle-click.sh ]; then
+if [ ! -f $dir/middle-click.sh ]; then
 	echo "File 'middle-click.sh' does not exist in your homedir"
 	echo "Put file into homedir and run the script again."
 	echo ""
@@ -191,6 +193,10 @@ sudo apt-add-repository -y ppa:teejee2008/ppa
 echo "Adding Dropbox"
 sudo apt-add-repository -y 'deb http://linux.dropbox.com/ubuntu trusty main'
 sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+# Docker
+echo "Adding Docker"
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 # Elementary Tweaks
 echo "Adding Elementary Tweaks"
 sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
@@ -215,6 +221,8 @@ sudo apt-add-repository -y 'deb-src http://archive.canonical.com/ubuntu/ trusty 
 echo "Adding Spotify"
 sudo apt-add-repository -y 'deb http://repository.spotify.com/ stable non-free' 
 sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 94558F59
+# Structorizer
+sudo apt-add-repository -y ppa:vgk/vestix
 # Sublime text editor
 echo "Adding Sublime Text Editor"
 sudo apt-add-repository -y ppa:webupd8team/sublime-text-2
@@ -230,7 +238,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor lxc-docker dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
 #echo ""
 #echo "Fix for missing Dropbox indicator"
 #echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
@@ -259,22 +267,22 @@ echo ""
 sudo apt-get -y install -f
 echo ""
 echo "Patching Guake"
-sudo patch /usr/bin/guake < ~/guake.patch
-rm ~/guake.patch
+sudo patch /usr/bin/guake < $dir/guake.patch
+#rm ~/guake.patch
 echo ""
 echo "Patching gtk scrollbar width"
-sudo patch /usr/share/themes/elementary/gtk-2.0/gtkrc < ~/gtk_scrollbar.patch
-rm ~/gtk_scrollbar.patch
+sudo patch /usr/share/themes/elementary/gtk-2.0/gtkrc < $dir/gtk_scrollbar.patch
+#rm ~/gtk_scrollbar.patch
 echo ""
 echo "Patching gtk 3 scrollbar width"
-sudo patch /usr/share/themes/elementary/gtk-3.0/gtk-widgets.css < ~/gtk-3-widgets-css.patch
-rm ~/gtk-3-widgets-css.patch
+sudo patch /usr/share/themes/elementary/gtk-3.0/gtk-widgets.css < $dir/gtk-3-widgets-css.patch
+#rm ~/gtk-3-widgets-css.patch
 echo "Moving vim config"
-sudo mv ~/vimrc /etc/vim/
+sudo mv $dir/vimrc /etc/vim/
 echo ""
 echo "Customizing bash"
-mv ~/bashrc /.bashrc
-mv ~/bash_aliases ~/.bash_aliases
+cp $dir/bashrc /.bashrc
+cp $dir/bash_aliases ~/.bash_aliases
 echo ""
 echo "Downloading neighbor note - please install manually."
 wget -O ~/Downloads/neighbornote-0.5.3-linux-x64-installer.run http://iij.dl.sourceforge.jp/neighbornote/62335/neighbornote-0.5.3-linux-x64-installer.run
