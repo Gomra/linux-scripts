@@ -1,3 +1,6 @@
 #List of ignored files
 
+bashrc
 readscript.sh
+linuxscripts.sublime-project
+linuxscripts.sublime-workspace

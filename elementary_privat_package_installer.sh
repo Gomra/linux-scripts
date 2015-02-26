@@ -73,6 +73,7 @@
 # meld
 # openjdk-7-jdk
 # openjdk-7-jre
+# openvpn
 # pdftk
 # pepperflashplugin-nonfree
 # pinta
@@ -168,8 +169,12 @@ if [ $fehler -ne 0 ]; then
 	echo ""
 	echo "One or more errors occured."
 	echo "Copy files to your homedir and try to run this script again"
-	echo ""
-	exit 1
+	echo "Continue anyway (y/n)?"
+	read input
+	if [ "$input" == "y" ]; then
+		echo "Aborted."
+		exit 1
+	fi
 fi
 
 # First we will update the system
@@ -213,6 +218,8 @@ sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/a
 # LibreOffice
 echo "Addinng new LibreOffice"
 sudo apt-add-repository -y ppa:libreoffice/ppa
+# Plank Themes
+sudo add-apt-repository -y ppa:noobslab/apps
 # Skype
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
@@ -238,7 +245,9 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor lxc-docker dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor lxc-docker dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset youtube-dl
+# For plank themer
+cd /tmp/ && ./Replace.sh;cd
 #echo ""
 #echo "Fix for missing Dropbox indicator"
 #echo "export DROPBOX_USE_LIBAPPINDICATOR=1" >> ~/.xsessionrc
@@ -280,12 +289,12 @@ sudo patch /usr/share/themes/elementary/gtk-3.0/gtk-widgets.css < $dir/gtk-3-wid
 echo "Moving vim config"
 sudo mv $dir/vimrc /etc/vim/
 echo ""
-echo "Customizing bash"
-cp $dir/bashrc /.bashrc
-cp $dir/bash_aliases ~/.bash_aliases
+#echo "Customizing bash"
+#cp $dir/bashrc /.bashrc
+#cp $dir/bash_aliases ~/.bash_aliases
 echo ""
-echo "Downloading neighbor note - please install manually."
-wget -O ~/Downloads/neighbornote-0.5.3-linux-x64-installer.run http://iij.dl.sourceforge.jp/neighbornote/62335/neighbornote-0.5.3-linux-x64-installer.run
+#echo "Downloading neighbor note - please install manually."
+#wget -O ~/Downloads/neighbornote-0.5.3-linux-x64-installer.run http://iij.dl.sourceforge.jp/neighbornote/62335/neighbornote-0.5.3-linux-x64-installer.run
 
 echo "All tasks done. Have fun!"
 

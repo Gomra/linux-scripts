@@ -81,6 +81,7 @@
 # pdftk
 # pepperflashplugin-nonfree
 # pinta
+# plank-themer
 # pm-utils
 # poedit
 # pv # Durchsatzmessung von Pipes
@@ -147,6 +148,8 @@ sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/a
 # NixNote
 echo "Adding NixNote"
 sudo apt-add-repository -y ppa:vincent-c/nevernote
+# Plank Themes
+sudo add-apt-repository -y ppa:noobslab/apps
 # Skype
 echo "Adding Skype"
 sudo apt-add-repository -y 'deb http://archive.canonical.com/ubuntu/ trusty partner'
@@ -170,7 +173,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
 echo ""
 sudo dpkg --add-architecture i386
 echo "Install Teamviewer"
