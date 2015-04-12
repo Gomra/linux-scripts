@@ -81,6 +81,7 @@
 # poedit
 # pv # Durchsatzmessung von Pipes
 # rdesktop
+# remmina
 # shutter
 # skype  
 # spotify-client
@@ -98,10 +99,10 @@
 # vim
 # virtualbox
 # vlc
-# wine winetricks playonlinux # latest version from PPA
 # xbindkeys xbindkeys-config xkbset # For keyboard manipulation (e.g. "CapsLock=MidMouse")
 # xfburn # replacing brasero <-- doesn't work on elementary 
 # youtube-dl
+# yumi
 #
 ###############################################################################
 START=`date`
@@ -175,6 +176,9 @@ if [ $fehler -ne 0 ]; then
 	read input
 	if [ "$input" == "y" ]; then
 		echo "Aborted."
+		echo "Start: $START"
+		END=`date`
+		echo "Ende: $END"
 		exit 1
 	fi
 fi
@@ -238,16 +242,13 @@ sudo apt-add-repository -y ppa:webupd8team/sublime-text-2
 # Synapse - testing // no errors occured until now
 echo "Adding Synapse"
 sudo apt-add-repository -y ppa:synapse-core/testing
-# Wine
-echo "Adding Wine"
-sudo apt-add-repository -y ppa:ubuntu-wine/ppa
-echo ""
+
 sudo apt-get update
 echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor lxc-docker dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv python-gpgme rdesktop shutter skype spotify-client sshfs structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xfburn xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor lxc-docker dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de lm-sensors mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv python-gpgme rdesktop remmina remmina-plugin-rdp remmina-plugin-vnc shutter skype spotify-client sshfs structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc xbindkeys xbindkeys-config xfburn xkbset youtube-dl yumi
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 #echo ""
@@ -268,9 +269,12 @@ echo ""
 echo "Step 5:  remove unnecessary software packages"
 sudo apt-get purge -y midori-granite
 sudo apt-get purge -y noise
-sudo apt-get purge -y geary 
+# disable automacilly deinstallion of geary for testing mail indicator!
+#sudo apt-get purge -y geary 
 sudo apt-get purge -y software-center
 sudo apt-get purge -y scratch-text-editor
+sudo apt-get purge -y brasero
+
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
 echo ""
