@@ -187,8 +187,8 @@ sudo apt-add-repository -y ppa:synapse-core/testing
 # echo "Adding Wine"
 # sudo apt-add-repository -y ppa:ubuntu-wine/ppa
 # echo ""
-# sudo apt-get update
-# echo ""
+sudo apt-get update
+echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
