@@ -30,6 +30,10 @@
 #	+ conky
 #	+ vpn
 #	+ keepass2
+###############################################################
+#
+# hp printer (hplip?)
+# 
 #	
 #
 #
@@ -51,6 +55,7 @@
 # chromium-browser chromium-browser-l10n
 # conky conky-all conky-manager
 # dconf-editor
+# dia
 # docker (lxc-docker)
 # dropbox # http://wiki.ubuntuusers.de/Dropbox
 # elementary-tweaks
@@ -61,14 +66,18 @@
 # gimp
 # git
 # gitg
+# go for it
 # google-chrome # https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb <-- Removed due to indicator icons erros
 # gparted
 # gsynaptics
 # guake
 # guayadeque
 # hddtemp
+# hipchat
+# imagemagick
 # insync
 # java # -->openjdk-7-jre openjdk-7-jdk
+# jxplorer
 # keepass2
 # labyrinth	# mind mapping tool
 # libreoffice libreoffice-l10n-de
@@ -79,6 +88,7 @@
 # openjdk-7-jre
 # openvpn
 # pdftk
+# pencil
 # pepperflashplugin-nonfree
 # pinta
 # plank-themer
@@ -142,6 +152,13 @@ sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
 # Elementary Tweaks
 echo "Adding Elementary Tweaks"
 sudo apt-add-repository -y ppa:mpstark/elementary-tweaks-daily
+# Go for it
+echo "Adding go for it"
+sudo apt-add-repository -y ppa:mank319/go-for-it
+# Hipchat
+echo "Adding Hipchat"
+echo "deb http://downloads.hipchat.com/linux/apt stable main" >  /etc/apt/sources.list.d/atlassian-hipchat.list
+wget -O - https://www.hipchat.com/keys/hipchat-linux.key | apt-key add -
 # Insync
 echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
@@ -175,7 +192,7 @@ sudo apt-add-repository -y ppa:synapse-core/testing
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client ssfhs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dia lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg go-for-it gparted gsynaptics guake guayadeque hddtemp hipchat imagemagick insync jxplorer keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pencil pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client ssfhs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 echo ""
