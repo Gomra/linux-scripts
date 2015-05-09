@@ -192,7 +192,7 @@ sudo apt-add-repository -y ppa:synapse-core/testing
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dia lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg go-for-it gparted gsynaptics guake guayadeque hddtemp hipchat imagemagick insync jxplorer keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pencil pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client ssfhs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dia lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg go-for-it gparted gsynaptics guake guayadeque hddtemp hipchat imagemagick insync jxplorer keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pencil pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client sshfs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 echo ""
