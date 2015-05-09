@@ -2,6 +2,7 @@
 #
 # mbo 
 # install-script for elementary os
+# v.0.3 :  2015-05-09 - Removed wine, virtualbox; changed docker
 # v.0.2 :  2014-10-31 - Add insync repository
 # v.0.1 :  2014-10-20 - initial version of the script
 #
@@ -50,10 +51,9 @@
 # chromium-browser chromium-browser-l10n
 # conky conky-all conky-manager
 # dconf-editor
-# docker.io
+# docker (lxc-docker)
 # dropbox # http://wiki.ubuntuusers.de/Dropbox
 # elementary-tweaks
-# evolution evolution-ews
 # filezilla
 # firefox firefox-locale-de
 # flashplugin-installer
@@ -85,7 +85,7 @@
 # pm-utils
 # poedit
 # pv # Durchsatzmessung von Pipes
-# rdesktop
+# remmina
 # shutter
 # skype 
 # smartgithg 
@@ -101,9 +101,7 @@
 # tomboy
 # transmission
 # vim
-# virtualbox
 # vlc
-# wine winetricks playonlinux # latest version from PPA
 # xbindkeys xbindkeys-config xkbset # For keyboard manipulation (e.g. "CapsLock=MidMouse")
 #
 ###############################################################################
@@ -126,14 +124,17 @@ sudo apt-get -y dist-upgrade
 echo "Step 2: Add Repos"
 echo ""
 # Birdie - Twitter client
-echo "Adding Birdie - Twitter Client"
-sudo apt-add-repository -y ppa:birdie-team/stable
+#echo "Adding Birdie - Twitter Client"
+#sudo apt-add-repository -y ppa:birdie-team/stable
 # BitTorrent Sync
 echo "Adding BitTorrent Sync"
 sudo apt-add-repository -y ppa:tuxpoldo/btsync
 # Conky Manager
 echo "Adding Conky Manager"
 sudo apt-add-repository -y ppa:teejee2008/ppa
+# Docker
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
 # Dropbox
 echo "Adding Dropbox"
 sudo apt-add-repository -y 'deb http://linux.dropbox.com/ubuntu trusty main'
@@ -147,8 +148,8 @@ wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key |
 sudo echo "#Add Insync Repository" >> /etc/apt/sources.list
 sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list
 # NixNote
-echo "Adding NixNote"
-sudo apt-add-repository -y ppa:vincent-c/nevernote
+#echo "Adding NixNote"
+#sudo apt-add-repository -y ppa:vincent-c/nevernote
 # Plank Themes
 sudo add-apt-repository -y ppa:noobslab/apps
 # Skype
@@ -166,15 +167,15 @@ sudo apt-add-repository -y ppa:webupd8team/sublime-text-2
 echo "Adding Synapse"
 sudo apt-add-repository -y ppa:synapse-core/testing
 # Wine
-echo "Adding Wine"
-sudo apt-add-repository -y ppa:ubuntu-wine/ppa
-echo ""
-sudo apt-get update
-echo ""
+# echo "Adding Wine"
+# sudo apt-add-repository -y ppa:ubuntu-wine/ppa
+# echo ""
+# sudo apt-get update
+# echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor docker.io dropbox elementary-tweaks evolution evolution-ews flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth libreoffice libreoffice-l10n-de mc meld nixnote openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv rdesktop shutter skype spotify-client ssfhs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc wine1.7 winetricks xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client ssfhs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 echo ""
@@ -186,11 +187,11 @@ echo "Install Google Chrome"
 wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n ~/Downloads/googlechrome.deb
 echo ""
-echo "Install SmartGitHG"
-wget -O ~/Downloads/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
-mkdir -p ~/programs/smartgithg
-#chown $1:$1 -R ~/programs
-tar xvzf ~/Downloads/smartgithg.tar.gz -C ~/programs/
+# echo "Install SmartGitHG"
+# wget -O ~/Downloads/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
+# mkdir -p ~/programs/smartgithg
+# #chown $1:$1 -R ~/programs
+# tar xvzf ~/Downloads/smartgithg.tar.gz -C ~/programs/
 
 # Let's get rid of unnecessary software packages
 echo "Step 4:  remove unnecessary software packages"
@@ -204,6 +205,10 @@ sudo apt-get autoclean -y
 echo ""
 # Unhandled dependencies?
 sudo apt-get -y install -f
+
+echo ""
+echo "libreoffice"
+sudo apt-get -y install libreoffice libreoffice-l10n-de 
 echo ""
 echo "Have fun!"
 
