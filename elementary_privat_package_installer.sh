@@ -2,6 +2,7 @@
 #
 # mbo 
 # install-script for elementary os
+# v.0.4 :  2015-07-21 - Changed Spotify keyserver
 # v.0.3 :  2014-12-15 - Removed nixnote; GTK-3 scrollbar patch
 # v.0.2 :  2014-10-31 - Add insync repository
 # v.0.1 :  2014-10-20 - initial version of the script
@@ -236,7 +237,7 @@ sudo apt-add-repository -y 'deb-src http://archive.canonical.com/ubuntu/ trusty 
 # Spotify
 echo "Adding Spotify"
 sudo apt-add-repository -y 'deb http://repository.spotify.com/ stable non-free' 
-sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 94558F59
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 13B00F1FD2C19886
 # Structorizer
 sudo apt-add-repository -y ppa:vgk/vestix
 # Sublime text editor
