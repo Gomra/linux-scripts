@@ -5,3 +5,8 @@ readscript.sh
 linuxscripts.sublime-project
 linuxscripts.sublime-workspace
 conf-files
+gtk-evolution.txt
+ios-theme.sh
+macos-theme.tar.gz
+monitor.sh
+show-dropbox-indicator.sh
