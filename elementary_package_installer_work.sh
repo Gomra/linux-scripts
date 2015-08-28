@@ -2,9 +2,10 @@
 #
 # mbo 
 # install-script for elementary os
-# v.0.3 :  2015-05-09 - Removed wine, virtualbox; changed docker
-# v.0.2 :  2014-10-31 - Add insync repository
-# v.0.1 :  2014-10-20 - initial version of the script
+# v0.4 :  2015-08-28 - Removed Nixnote, Birdie
+# v0.3 :  2015-05-09 - Removed wine, virtualbox; changed docker
+# v0.2 :  2014-10-31 - Add insync repository
+# v0.1 :  2014-10-20 - initial version of the script
 #
 ###############################################################################
 # + + + + + ToDo + + + + +
@@ -133,8 +134,6 @@ sudo apt-get -y dist-upgrade
 # Add all of the additional repositories
 echo "Step 2: Add Repos"
 echo ""
-# Birdie - Twitter client
-#echo "Adding Birdie - Twitter Client"
 #sudo apt-add-repository -y ppa:birdie-team/stable
 # BitTorrent Sync
 echo "Adding BitTorrent Sync"
@@ -164,9 +163,6 @@ echo "Adding Insync"
 wget -qO - https://d2t3ff60b2tol4.cloudfront.net/services@insynchq.com.gpg.key | sudo apt-key add -
 sudo echo "#Add Insync Repository" >> /etc/apt/sources.list
 sudo echo "deb http://apt.insynchq.com/ubuntu trusty non-free contrib" >> /etc/apt/sources.list
-# NixNote
-#echo "Adding NixNote"
-#sudo apt-add-repository -y ppa:vincent-c/nevernote
 # Plank Themes
 sudo add-apt-repository -y ppa:noobslab/apps
 # Skype
@@ -183,9 +179,6 @@ sudo apt-add-repository -y ppa:webupd8team/sublime-text-2
 # Synapse - testing // no errors occured until now
 echo "Adding Synapse"
 sudo apt-add-repository -y ppa:synapse-core/testing
-# Wine
-# echo "Adding Wine"
-# sudo apt-add-repository -y ppa:ubuntu-wine/ppa
 # echo ""
 sudo apt-get update
 echo ""
@@ -204,11 +197,6 @@ echo "Install Google Chrome"
 wget -O ~/Downloads/googlechrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo gdebi -n ~/Downloads/googlechrome.deb
 echo ""
-# echo "Install SmartGitHG"
-# wget -O ~/Downloads/smartgithg.tar.gz http://www.syntevo.com/download/smartgithg/smartgithg-generic-6_0_7.tar.gz
-# mkdir -p ~/programs/smartgithg
-# #chown $1:$1 -R ~/programs
-# tar xvzf ~/Downloads/smartgithg.tar.gz -C ~/programs/
 
 # Let's get rid of unnecessary software packages
 echo "Step 4:  remove unnecessary software packages"
