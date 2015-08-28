@@ -12,7 +12,6 @@ then
     
     # Also execute in this session, to show the icon immediately
     export DROPBOX_USE_LIBAPPINDICATOR=1
-    
     echo
     echo "Restarting Dropbox..."
     dropbox stop && dropbox start -i &
