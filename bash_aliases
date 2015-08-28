@@ -3,6 +3,10 @@ alias ...='cd ../..'
 alias l='ls -lgh --color=auto --group-directories-first'
 alias lsg='ls -alFh --group-directories-first | grep'
 alias lsh='ls -ld .[^.]*'
+alias lsd='ls -d */'
+alias lg='ll | grep '
+#alias cp='cp -i -a'
+#alias cpr='cp'
 #Fast access to frequently used directories
 alias dir-dl='cd ~/Downloads'
 alias dir-btsync='cd ~/btsync'
@@ -33,3 +37,8 @@ alias aptlu='sudo apt-get update && sudo apt-get --just-print upgrade'
 #Misc
 alias psg='ps -ef | grep'
 alias docker='sudo docker'
+alias ostart='sudo /etc/init.d/openvpn start'
+alias ostop='sudo /etc/init.d/openvpn stop'
+
+
+#alias nsenter='sudo /home/mbouws/btsync/private/sectornord/docker/enterdocker'
