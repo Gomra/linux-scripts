@@ -5,7 +5,7 @@
      -GtkScrollbar-has-backward-stepper: false;
      -GtkScrollbar-has-forward-stepper: false;
 -    -GtkRange-slider-width: 3;
-+    -GtkRange-slider-width: 6;
++    -GtkRange-slider-width: 8;
      -GtkScrollbar-min-slider-length: 30;
  
      -GtkRange-stepper-spacing: 0;
