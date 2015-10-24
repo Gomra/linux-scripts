@@ -1,6 +1,6 @@
 #!/bin/bash
 
-displ_name=VGA1
+displ_name=eDP1
 con_mon=/tmp/xrandr.txt
 myprocs=/tmp/cerbprocs
 
