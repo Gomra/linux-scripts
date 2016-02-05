@@ -41,4 +41,4 @@ alias ostart='sudo /etc/init.d/openvpn start'
 alias ostop='sudo /etc/init.d/openvpn stop'
 
 
-#alias nsenter='sudo /home/mbouws/btsync/private/sectornord/docker/enterdocker'
+#alias nsenter='sudo ~/btsync/private/sectornord/docker/enterdocker'
