@@ -47,6 +47,7 @@
 # bluefish bluefish-plugins
 # btsync-gui
 # ccrypt
+# cherrytree
 # chromium-browser chromium-browser-l10n
 # conky conky-all conky-manager
 # dconf-editor
@@ -63,6 +64,7 @@
 # gitg
 # google-chrome
 # gparted
+# gpicview
 # gsynaptics
 # guake
 # guayadeque
@@ -98,7 +100,6 @@
 # sysv-rc-conf
 # teamviewer
 # thunderbird thunderbird-locale-de
-# tomboy
 # transmission
 # vim
 # virtualbox
@@ -201,6 +202,9 @@ sudo apt-add-repository -y ppa:birdie-team/stable
 # BitTorrent Sync
 echo "Adding BitTorrent Sync"
 sudo apt-add-repository -y ppa:tuxpoldo/btsync
+# Cherry tree
+echo "Adding Cherry tree"
+sudo add-apt-repository -y ppa:vincent-c/cherrytree
 # Conky Manager
 echo "Adding Conky Manager"
 sudo apt-add-repository -y ppa:teejee2008/ppa
@@ -252,7 +256,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Step 4: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth lm-sensors mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv python-gpgme rdesktop remmina remmina-plugin-rdp remmina-plugin-vnc shutter skype spotify-client sshfs structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim virtualbox vlc xbindkeys xbindkeys-config xfburn xkbset youtube-dl
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt cherrytree chromium-browser chromium-browser-l10n conky conky-all conky-manager dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gedit-plugins gdebi gimp git gitg google-chrome-stable gparted gpicview gsynaptics guake guayadeque hddtemp insync keepass2 labyrinth lm-sensors mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pepperflashplugin-nonfree pinta plank-themer playonlinux pm-utils poedit pv python-gpgme rdesktop remmina remmina-plugin-rdp remmina-plugin-vnc shutter skype spotify-client sshfs structorizer sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de transmission vim virtualbox vlc xbindkeys xbindkeys-config xfburn xkbset youtube-dl
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 #echo ""
@@ -273,7 +277,7 @@ echo ""
 echo "Step 5:  remove unnecessary software packages"
 sudo apt-get purge -y midori-granite
 sudo apt-get purge -y noise
-# disable automacilly deinstallion of geary for testing mail indicator!
+# disable automatically deinstallion of geary for testing mail indicator!
 #sudo apt-get purge -y geary 
 sudo apt-get purge -y software-center
 sudo apt-get purge -y scratch-text-editor

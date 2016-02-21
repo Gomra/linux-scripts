@@ -1,4 +1,0 @@
-# A list with packages installed during use of elementary os
-
-
-gpicview

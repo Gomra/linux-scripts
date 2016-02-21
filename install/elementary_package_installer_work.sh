@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #
 # mbo 
 # install-script for elementary os
@@ -53,6 +54,7 @@
 # bluefish bluefish-plugins
 # btsync-gui
 # ccrypt
+# cherrytree
 # chromium-browser chromium-browser-l10n
 # conky conky-all conky-manager
 # dconf-editor
@@ -71,6 +73,7 @@
 # google-chrome # https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb <-- Removed due to indicator icons erros
 # gparted
 # gsynaptics
+# gpicview
 # guake
 # guayadeque
 # hddtemp
@@ -109,7 +112,6 @@
 # sysv-rc-conf
 # teamviewer
 # thunderbird thunderbird-locale-de
-# tomboy
 # transmission
 # vim
 # vlc
@@ -138,6 +140,9 @@ echo ""
 # BitTorrent Sync
 echo "Adding BitTorrent Sync"
 sudo apt-add-repository -y ppa:tuxpoldo/btsync
+# Cherry tree
+echo "Adding Cherry tree"
+sudo add-apt-repository -y ppa:vincent-c/cherrytree
 # Conky Manager
 echo "Adding Conky Manager"
 sudo apt-add-repository -y ppa:teejee2008/ppa
@@ -185,7 +190,7 @@ echo ""
 # Let's install the bunch of the new nice <<required>> software
 echo "Final Step 3: INSTALLATION"
 echo ""
-sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt chromium-browser chromium-browser-l10n conky conky-all conky-manager dia lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg go-for-it gparted gsynaptics guake guayadeque hddtemp hipchat imagemagick insync jxplorer keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pencil pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client sshfs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de tomboy transmission vim vlc xbindkeys xbindkeys-config xkbset
+sudo apt-get -y install aptitude autokey-gtk bluefish bluefish-plugins btsync-gui ccrypt cherrytree chromium-browser chromium-browser-l10n conky conky-all conky-manager dia lxc-docker dconf-editor dropbox elementary-tweaks flashplugin-installer filezilla firefox firefox-locale-de gedit gdebi gimp git gitg go-for-it gparted gpicview gsynaptics guake guayadeque hddtemp hipchat imagemagick insync jxplorer keepass2 labyrinth mc meld openjdk-7-jre openjdk-7-jdk openvpn pdftk pencil pepperflashplugin-nonfree pinta plank-themer pm-utils poedit pv remmina shutter skype spotify-client sshfs sublime-text subversion synapse synaptic sysv-rc-conf thunderbird thunderbird-locale-de transmission vim vlc xbindkeys xbindkeys-config xkbset
 # For plank themer
 cd /tmp/ && ./Replace.sh;cd
 echo ""
